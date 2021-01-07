@@ -28,7 +28,7 @@ corgi_score(
   sheet_url = google spreadsheet link, 
   sheet_name = name of sheet,
   column_name = the column that you want to update, 
-  max_score = maximum score
+  max_score = maximum score,
   email = your algoritma email
   
 )
