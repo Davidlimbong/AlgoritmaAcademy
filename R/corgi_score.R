@@ -16,12 +16,7 @@ source("R/getColumnName.R")
 #'
 #' @examples
 corgi_score <- function(github, sheet_url, sheet_name, column_name, max_score, email) {
-  # Get recipients from corgi
-
-  ## Get repo name
-  corgi_link <- "https://corgi.re/courses/Davidlimbong/P4DS-PS"
-  corgi_link <- regmatches(corgi_link, gregexpr("[^/]+",corgi_link))[[1]]
-  corgi_link[length(corgi_link)]
+# Get recipients from corgi
 
   ## Get participant name
   corgi <- xml2::read_html(github) %>%
@@ -36,6 +31,7 @@ corgi_score <- function(github, sheet_url, sheet_name, column_name, max_score, e
   id <- match(column_name, names(academy))
 
   academy %>%
+    dplyr::filter(!is.na(Class)) %>%
     dplyr::mutate(`Github ID` = tolower(`Github ID`)) %>%
     transmute_at(.vars = dplyr::vars(dplyr::contains(column_name)),
                  .funs = function(x) ifelse(.$`Github ID` %in% corgi, max_score,0)) %>% ## Scoring
