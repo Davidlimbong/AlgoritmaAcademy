@@ -29,6 +29,6 @@ corgi_score(
   sheet_name = "sheet name",
   column_name = "column name"
   max_score = 4,
-  email = name@algorit.ma
+  email = "name@algorit.ma"
 )
 ```
