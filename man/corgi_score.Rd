@@ -2,16 +2,35 @@
 % Please edit documentation in R/corgi_score.R
 \name{corgi_score}
 \alias{corgi_score}
-\title{Title}
+\title{Corgi Quiz Assessment}
 \usage{
 corgi_score(github, sheet_url, sheet_name, column_name, max_score, email)
 }
 \arguments{
-\item{email}{}
+\item{github}{Link to course on corgi.re (string).}
+
+\item{sheet_url}{Google spreadsheet link (string).}
+
+\item{sheet_name}{Sheet name on the spreadsheet (string).}
+
+\item{column_name}{The column that you want to update (string).}
+
+\item{max_score}{Maximum score on the quiz (numeric).}
+
+\item{email}{your email (string). for authentication purpose.}
 }
 \value{
-
+"Quiz Updated Successfully" which mean the score on the spreadsheet is updated.
 }
 \description{
-Title
+The corgi_score() function is used to assess the Algoritma students based on the quiz on corgi.re.
+}
+\examples{
+corgi_score(github = "https://corgi.re/courses/Davidlimbong/P4DS-PS",
+      sheet_url = "https://docs.google.com/spreadsheets/d/xxxxx/yyyyy",
+      sheet_name = "Academy: Batch 9",
+      column_name = "NN Quiz"
+      max_score = 4,
+      email = "david_at_algorit.ma")
+
 }
