@@ -1,21 +1,47 @@
 library(dplyr)
-source("R/getColumnName.R")
+# source("R/getColumnName.R")
 
 
-#' Title
+#' Corgi Quiz Assessment
 #'
-#' @param github
-#' @param sheet_url
-#' @param sheet_name
-#' @param column_name
-#' @param max_score
-#' @param email
 #'
-#' @return
+#' The corgi_score() function is used to assess the Algoritma students based on the quiz on corgi.re.
+#'
+#' @param github  Link to course on corgi.re (string).
+#' @param sheet_url Google spreadsheet link (string).
+#' @param sheet_name Sheet name on the spreadsheet (string).
+#' @param column_name The column that you want to update (string).
+#' @param max_score Maximum score on the quiz (numeric).
+#' @param email your email (string). for authentication purpose.
+#'
+#' @return "Quiz Updated Successfully" which mean the score on the spreadsheet is updated.
 #' @export
 #'
 #' @examples
+#' corgi_score(github = "https://corgi.re/courses/Davidlimbong/P4DS-PS",
+#'       sheet_url = "https://docs.google.com/spreadsheets/d/xxxxx/yyyyy",
+#'       sheet_name = "Academy: Batch 9",
+#'       column_name = "NN Quiz"
+#'       max_score = 4,
+#'       email = "david_at_algorit.ma")
+#'
 corgi_score <- function(github, sheet_url, sheet_name, column_name, max_score, email) {
+
+  getColumnName <- function(word_length) {
+
+    if(word_length <= 26){
+      col_id <- paste0(LETTERS[word_length], 1)
+    }else{
+
+      if(floor(word_length/26)<=26){
+        start <- LETTERS[floor(word_length/26)]
+        col_id <- paste0(start, end,1)
+      }
+
+    }
+    return(col_id)
+  }
+
 # Get recipients from corgi
 
   ## Get participant name

@@ -16,4 +16,11 @@ Imports:
     dplyr,
     xml2,
     googlesheets4,
-    rvest
+    rvest,
+    readr,
+    lubridate,
+    janitor,
+    stringr,
+    DBI,
+    tidyr,
+    tibble
