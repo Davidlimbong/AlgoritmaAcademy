@@ -1,6 +1,4 @@
 library(dplyr)
-# source("R/getColumnName.R")
-
 
 #' Corgi Quiz Assessment
 #'
@@ -63,7 +61,7 @@ corgi_score <- function(github, sheet_url, sheet_name, column_name, max_score, e
                  .funs = function(x) ifelse(.$`Github ID` %in% corgi, max_score,0)) %>% ## Scoring
     googlesheets4::range_write(ss = sheet_url,
                 sheet = sheet_name,
-                range = AlgoritmaAcademy::getColumnName(id)) # write the result
+                range = getColumnName(id)) # write the result
   googlesheets4::gs4_deauth()
   print("Quiz Updated Successfully")
 
