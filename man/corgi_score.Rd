@@ -4,10 +4,10 @@
 \alias{corgi_score}
 \title{Corgi Quiz Assessment}
 \usage{
-corgi_score(github, sheet_url, sheet_name, column_name, max_score, email)
+corgi_score(corgi_url, sheet_url, sheet_name, column_name, max_score, email)
 }
 \arguments{
-\item{github}{Link to course on corgi.re (string).}
+\item{corgi_url}{Link to course on corgi.re (string).}
 
 \item{sheet_url}{Google spreadsheet link (string).}
 
@@ -26,7 +26,7 @@ corgi_score(github, sheet_url, sheet_name, column_name, max_score, email)
 The corgi_score() function is used to assess the Algoritma students based on the quiz on corgi.re.
 }
 \examples{
-corgi_score(github = "https://corgi.re/courses/Davidlimbong/P4DS-PS",
+corgi_score(corgi_url = "https://corgi.re/courses/Davidlimbong/P4DS-PS",
       sheet_url = "https://docs.google.com/spreadsheets/d/xxxxx/yyyyy",
       sheet_name = "Academy: Batch 9",
       column_name = "NN Quiz"

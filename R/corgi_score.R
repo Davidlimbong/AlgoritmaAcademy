@@ -5,7 +5,7 @@ library(dplyr)
 #'
 #' The corgi_score() function is used to assess the Algoritma students based on the quiz on corgi.re.
 #'
-#' @param github  Link to course on corgi.re (string).
+#' @param corgi_url  Link to course on corgi.re (string).
 #' @param sheet_url Google spreadsheet link (string).
 #' @param sheet_name Sheet name on the spreadsheet (string).
 #' @param column_name The column that you want to update (string).
@@ -16,14 +16,14 @@ library(dplyr)
 #' @export
 #'
 #' @examples
-#' corgi_score(github = "https://corgi.re/courses/Davidlimbong/P4DS-PS",
+#' corgi_score(corgi_url = "https://corgi.re/courses/Davidlimbong/P4DS-PS",
 #'       sheet_url = "https://docs.google.com/spreadsheets/d/xxxxx/yyyyy",
 #'       sheet_name = "Academy: Batch 9",
 #'       column_name = "NN Quiz"
 #'       max_score = 4,
 #'       email = "david_at_algorit.ma")
 #'
-corgi_score <- function(github, sheet_url, sheet_name, column_name, max_score, email) {
+corgi_score <- function(corgi_url, sheet_url, sheet_name, column_name, max_score, email) {
 
   getColumnName <- function(word_length) {
 
@@ -43,7 +43,7 @@ corgi_score <- function(github, sheet_url, sheet_name, column_name, max_score, e
 # Get recipients from corgi
 
   ## Get participant name
-  corgi <- xml2::read_html(github) %>%
+  corgi <- xml2::read_html(corgi_url) %>%
     rvest::html_nodes(xpath = "//a") %>%
     rvest::html_text()
   corgi <- tolower(corgi[12:(length(corgi)-10)])
